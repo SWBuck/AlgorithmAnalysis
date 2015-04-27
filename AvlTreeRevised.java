@@ -1,25 +1,4 @@
-// AvlTreeRevised class
-//
-// CONSTRUCTION: with no initializer
-//
-// ******************PUBLIC OPERATIONS*********************
-// void insert( x )       --> Insert x
-// void remove( x )       --> Remove x (unimplemented)
-// boolean contains( x )  --> Return true if x is present
-// Comparable findMin( )  --> Return smallest item
-// Comparable findMax( )  --> Return largest item
-// boolean isEmpty( )     --> Return true if empty; else false
-// void makeEmpty( )      --> Remove all items
-// void printTree( )      --> Print tree in sorted order
-// ******************ERRORS********************************
-// Throws UnderflowException as appropriate
 
-/**
- * Implements an AVL tree. Note that all "matching" is based on the compareTo
- * method.
- * 
- * @author Mark Allen Weiss
- */
 public class AvlTreeRevised<AnyType extends Comparable<? super AnyType>>{
 	public String toString(){
 		return "AvlTreeRevised";
@@ -364,65 +343,4 @@ public class AvlTreeRevised<AnyType extends Comparable<? super AnyType>>{
 
 	/** The tree root. */
 	private AvlNode<AnyType> root;
-
-	// Test program
-	public static void main(String[] args) {
-		AvlTreeRevised<Integer> t = new AvlTreeRevised<Integer>();
-
-		// Generate a random AVL tree with 100,000 elements
-		int size = 100000;
-		for (int x = 0; x < size; x++) {
-			int toInsert;
-			do {
-				toInsert = (int) (2 * size * Math.random() + 1);
-			} while (t.contains(toInsert));
-			t.insert(toInsert);
-		}
-
-		System.out.println("The height of the tree is " + t.height(t.root));
-
-		System.out.println("The height of the left subtree is "
-				+ t.height(t.root.left));
-
-		System.out.println("The height of the right subtree is "
-				+ t.height(t.root.right));
-
-		System.out.println("The number of nodes is " + t.count());
-
-		// do a bunch of inserts and deletes
-		// to confirm that remove actually works and the tree remains balanced
-		for (int j = 0; j < size; j++) {
-			int toInsert;
-			int toRemove;
-			int ran = (int) (3 * Math.random()); // Notice this generates 0, 1,
-													// 2
-			// randomly decide whether to do an insert or a remove.
-			// Make removes twice as likely.
-			// notice that this code does not guarantee the tree will
-			// stay the same size. In fact, probablistically, its going
-			// to shrink quite a bit
-			// For testing remove, this isn't important
-			if (ran == 0) {
-				do {
-					toInsert = (int) (2 * size * Math.random() + 1);
-				} while (t.contains(toInsert));
-				t.insert(toInsert);
-			} else {
-				do {
-					toRemove = (int) (2 * size * Math.random() + 1);
-				} while (!t.contains(toRemove));
-				t.remove(toRemove);
-			}
-		} // end for
-
-		System.out.println("The number of nodes is " + t.count());
-		System.out.println("The height of the tree is " + t.height(t.root));
-
-		System.out.println("The height of the left subtree is "
-				+ t.height(t.root.left));
-
-		System.out.println("The height of the right subtree is "
-				+ t.height(t.root.right));
-
-	} // end main
-} // end class
+}
