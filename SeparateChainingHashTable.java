@@ -1,22 +1,6 @@
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-
-// SeparateChaining Hash table class
-//
-// CONSTRUCTION: an approximate initial size or default of 101
-//
-// ******************PUBLIC OPERATIONS*********************
-// void insert( x )       --> Insert x
-// void remove( x )       --> Remove x
-// boolean contains( x )  --> Return true if x is present
-// void makeEmpty( )      --> Remove all items
-
-/**
- * Separate chaining table implementation of hash tables.
- * Note that all "matching" is based on the equals method.
- * @author Mark Allen Weiss
- */
 public class SeparateChainingHashTable<AnyType>
 {
     /**
@@ -192,33 +176,5 @@ public class SeparateChainingHashTable<AnyType>
 
         return true;
     }
-
-
-        // Simple main
-    public static void main( String [ ] args )
-    {
-        SeparateChainingHashTable<Integer> H = new SeparateChainingHashTable<Integer>( );
-
-        final int NUMS = 40000;
-        final int GAP  =   37;
-
-        System.out.println( "Checking... (no more output means success)" );
-
-        for( int i = GAP; i != 0; i = ( i + GAP ) % NUMS )
-            H.insert( i );
-        for( int i = 1; i < NUMS; i+= 2 )
-            H.remove( i );
-
-        for( int i = 2; i < NUMS; i+=2 )
-            if( !H.contains( i ) )
-                System.out.println( "Find fails " + i );
-
-        for( int i = 1; i < NUMS; i+=2 )
-        {
-            if( H.contains( i ) )
-                System.out.println( "OOPS!!! " +  i  );
-        }
-    }
-
 }
 
