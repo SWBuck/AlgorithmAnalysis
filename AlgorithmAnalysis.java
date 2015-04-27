@@ -4,7 +4,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class HW7 {
+public class AlgorithmAnalysis {
 
 	private BinarySearchTree<Integer> bst;
 	private AvlTreeRevised<Integer> avl;
@@ -23,15 +23,15 @@ public class HW7 {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		HW7 hw = new HW7();
+		AlgorithmAnalysis a = new AlgorithmAnalysis();
 		for (int i = 10000; i <= 1010000; i += 25000) {
-			hw.populate(i);
-			hw.contains(i);
-			hw.makeEmpty();
+			a.populate(i);
+			a.contains(i);
+			a.makeEmpty();
 			System.out.println(i + "");
 		}
-		hw.closeInsertPrintWriter();
-		hw.closeContainsPrintWriter();
+		a.closeInsertPrintWriter();
+		a.closeContainsPrintWriter();
 		System.out.println("Done");
 		
 	}
